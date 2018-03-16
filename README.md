@@ -2,4 +2,4 @@
 
 Andromeda Industries, 
 
-Puppet Repository
+Testing Puppet Repository
