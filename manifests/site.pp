@@ -17,7 +17,7 @@ node 'puppet-v5-test' {
     ensure => 'directory',
     owner  => 'root',
     mode   => '0600',
-    before => File['/testing/puppet/README'],
+    before => File['/testing/puppet/test.txt'],
   }
 
   file {'/testing/puppet/test.txt':
