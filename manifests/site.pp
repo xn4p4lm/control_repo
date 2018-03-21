@@ -17,5 +17,12 @@ node 'puppet-v5-test' {
     ensure => 'directory',
     owner  => 'root',
     mode   => '0600',
+    before => File['/testing/puppet/README'],
+  }
+
+  file {'/testing/puppet/test.txt':
+    ensure  => file,
+    content => 'This is a readme, puppet placed me here. This is the Testing server only\n',
+    mode    => '0400',
   }
 }
