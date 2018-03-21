@@ -17,12 +17,30 @@ node 'puppet-v5-test' {
     ensure => 'directory',
     owner  => 'root',
     mode   => '0600',
-    before => File['/testing/puppet/test.txt'],
   }
 
   file {'/testing/puppet/test.txt':
+    ensure => absent,
+  }
+
+  file {'/testing/puppet/read_only.txt':
     ensure  => file,
-    content => 'This is a readme, puppet placed me here. This is the Testing server only\n',
+    content => 'This is a read only file\n',
     mode    => '0400',
+    require => file['/testing/puppet'],
+  }
+
+  file {'/testing/puppet/read_write.txt':
+    ensure  => file,
+    content => 'This is a read only file\n',
+    mode    => '0600',
+    require => file['/testing/puppet'],
+  }
+
+  file {'/testing/puppet/read_wrtie_execute.txt':
+    ensure  => file,
+    content => 'This is a read only file\n',
+    mode    => '0700',
+    require => file['/testing/puppet'],
   }
 }
