@@ -6,7 +6,14 @@ node default {
 }
 
 node 'puppet-v5-test' {
-  file {'/testing/puppet/':
+  file{'/testing':
+    ensure => 'directory',
+    owner  => 'root',
+    mode   => '0600',
+    before => File['/testing/puppet'],
+  }
+
+  file {'/testing/puppet':
     ensure => 'directory',
     owner  => 'root',
     mode   => '0600',
