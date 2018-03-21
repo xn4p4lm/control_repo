@@ -18,6 +18,11 @@ node 'puppet-v5-test' {
     owner  => 'root',
     mode   => '0600',
   }
+
+  file {'/testing/puppet/test.txt':
+    ensure => absent,
+  }
+
   file {'/testing/puppet/read_only.txt':
     ensure  => file,
     content => 'This is a read only file\n',
