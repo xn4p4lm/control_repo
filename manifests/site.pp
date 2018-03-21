@@ -27,19 +27,19 @@ node 'puppet-v5-test' {
     ensure  => file,
     content => 'This is a read only file\n',
     mode    => '0400',
-    require => file['/testing/puppet'],
+    require => File['/testing/puppet'],
   }
 
   file {'/testing/puppet/read_write.txt':
     ensure  => file,
-    content => 'This is a read only file\n',
+    content => 'This is a read write file\n',
     mode    => '0600',
-    require => file['/testing/puppet'],
+    require => File['/testing/puppet'],
   }
 
   file {'/testing/puppet/read_wrtie_execute.txt':
     ensure  => file,
-    content => 'This is a read only file\n',
+    content => 'This is a read write and execute file\n',
     mode    => '0700',
     require => file['/testing/puppet'],
   }
