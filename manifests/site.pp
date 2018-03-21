@@ -6,7 +6,9 @@ node default {
 }
 
 node 'puppet-v5-test' {
-  directory {'/testing/puppet/':
-    ensure => present,
+  file {'/testing/puppet/':
+    ensure => 'directory',
+    owner  => 'root',
+    mode   => '0600',
   }
 }
