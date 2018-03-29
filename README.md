@@ -1,3 +1,3 @@
-# control_repo
+# puppet_dev_enviroment
 
-My yesting Puppet Repository
+My testing Puppet Repository
